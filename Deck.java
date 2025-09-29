@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.*;
 
 public class Deck {
-	private ArrayList<Card> cards = new ArrayList<Card> ();
-	private char[] suits = {'H', 'S', 'D', 'C'};
-	private int[] ranks = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+	private ArrayList<Card> cards = new ArrayList<Card> (); // arraylist to store all the card objects
+	private char[] suits = {'H', 'S', 'D', 'C'}; // suits for generating cards for constructor
+	private int[] ranks = {1,2,3,4,5,6,7,8,9,10,11,12,13}; // ranks for generating cards for constructor
 	
 	public Deck(){
 		
 	}
 	
-	public Deck(int cardAmount) {
+	public Deck(int cardAmount) { // cardAmount specifies how many cards is needed in the deck
 		int counter = 0;
 		boolean flag = true;
 		for(char s: suits) {
@@ -23,11 +23,13 @@ public class Deck {
 					flag = false;
 					break;
 				}
+				counter ++;
 			}
 			if(!flag) {
 				break;
 			}
 		}
+		
 	}
 	
 	public int deckSize() {
@@ -66,11 +68,22 @@ public class Deck {
 		}
 	}
 	
+	public Card getCard(int index) {
+		Card blank = new Card();
+		if(index > cards.size()) {
+			System.out.println("The index you inputed does not exist.");
+			return blank;
+		}
+		else {
+			return cards.get(index);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		String wholeDeck = "";
 		for(Card c: cards) {
-			wholeDeck += (String.valueOf(c.getSuit()) + c.getRank() + ' ');
+			wholeDeck += (c.toString() + '\n');
 		}
 		
 		return wholeDeck;

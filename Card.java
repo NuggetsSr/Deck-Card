@@ -1,5 +1,6 @@
 package Assignments;
 
+
 public class Card {
 	private char suit; // suit will be H, S, D, C
 	private int rank;
@@ -27,24 +28,48 @@ public class Card {
 		return suit;
 	}
 
-	public void setSuit(char suit) {
-		this.suit = suit;
-	}
-
 	public int getRank() {
 		return rank;
 	}
 
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
 	
 	@Override
 	public String toString() {
 		String suitStr = "";
-
 		
+		switch(rank){
+			case 1:
+				suitStr += "Ace";
+				break;
+			case 11:
+				suitStr += "Jack";
+				break;
+			case 12:
+				suitStr += "Queen";
+				break;
+			case 13:
+				suitStr += "King";
+				break;
+			default:
+				suitStr += rank;
+				break;
+		}
 		
-		return this.suit + " " + this.rank;
+		switch(suit) {
+			case 'H':
+				suitStr += " of Hearts";
+				break;
+			case 'S':
+				suitStr += " of Spades";
+				break;
+			case 'D':
+				suitStr += " of Diamonds";
+				break;
+			default:
+				suitStr += " of Clubs";	
+				break;
+		}	
+		
+		return suitStr;
 	}
 }

@@ -3,27 +3,33 @@ package Assignments;
 
 public class Card {
 	private char suit; // suit will be H, S, D, C
-	private int rank;
+	private int rank; // rank = 1 to 13
 	
 	public Card() { // default constructor
-		suit = 'H'; 
-		rank = 1 ;
+		
 	}
-	
-	public Card(char suit, int rank) {
+	// constructor to create a Card object
+	public Card(char suit, int rank) { 
 		this.suit = suit; 
-		this.rank = Math.clamp(rank,0,13); // value, min, max
+		// currently does not account for User inputting anything but char and an uppercase H,S,D,C
+	
+		this.rank = Math.clamp(rank,1,13); // value, min, max
+		// Clamp to ensure that the rank stays between 1 and 13, no matter what user inputs
 	}
 	
-	public boolean equals(Card other) {
-		if((this.suit == other.suit) && (this.rank == other.rank)) {
+	// custom equals method to compare two Cards for checking for duplicates
+	@Override
+	public boolean equals(Object other) { // Object other bc of @Override
+		Card otherC = (Card) other; 
+		if((this.suit == otherC.suit) && (this.rank == otherC.rank)) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-
+	
+	// getters
 	public char getSuit() {
 		return suit;
 	}
@@ -32,7 +38,7 @@ public class Card {
 		return rank;
 	}
 
-	
+	// Override toString method to have custom outputs in the format of rank + "of" + suits
 	@Override
 	public String toString() {
 		String suitStr = "";

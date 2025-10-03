@@ -8,6 +8,8 @@ public class Main {
 		
 		
 		System.out.println(c1); // print out the card to check if tostring of Card class is working correctly
+
+		System.out.println(d1.deckSize());
 		
 		d1.addCard(c1); // Try adding a card that already exists in the 
 		

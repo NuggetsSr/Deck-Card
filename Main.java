@@ -8,8 +8,6 @@ public class Main {
 		
 		
 		System.out.println(c1); // print out the card to check if tostring of Card class is working correctly
-
-		System.out.println(d1.deckSize());
 		
 		d1.addCard(c1); // Try adding a card that already exists in the 
 		
@@ -29,8 +27,20 @@ public class Main {
 		
 		System.out.println(d2.getCard(1)); // index does not exist in d2
 		
+		//checking card constructor edge case
+		Card c2 = new Card('C', -18);
 		
+		Card c3 = new Card('S', 100);
 		
+		System.out.println(c2);
+		System.out.println(c3);
+		
+		// setting cardAmount of Deck constructor to a negative value and a value greater than 52
+		Deck d3 = new Deck(-3);
+		Deck d4 = new Deck(54);
+		
+		System.out.println(d3.deckSize());
+		System.out.println(d4.deckSize());
 		
 		
 		
